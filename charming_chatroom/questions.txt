@@ -1,0 +1,55 @@
+1) What is a socket?
+An endpoint for sending or receiving data across a computer network. 
+It lays bwteeen TCP/ IP network protocol and application layer and allows application to transimit data through TCP/ UDP
+
+2) What is the difference between the domains AF_INET and AF_UNIX?
+they re bith address family (domain) used in socket programming
+AF_INET: 
+* This address family is used for IP-based communication, specifically with the IPv4 protocol
+* It allows for communication between different machines across a network
+* IP addresses (IPv4) + port number -> 4 octes
+
+AF_UNIX:
+* This address family is used for communication between processes on the same machine using file as the socket endpoint
+* local Inter-Process Communication (IPC) on UNIX system
+* file system paths as its addressing schema
+
+
+3) What is the difference between SOCK_STREAM and SOCK_DGRAM?
+SOCK_STREAM: using with TCP, reliable, connection-based, stream-based
+SOCT_DGRAM: using with UDP, connectionless, no reliable, packet-based
+
+4) Why is it important to clear all the values the addrinfo struct before using it in getaddrinfo?
+* Undefined behavior prevention: if not zeroed out, it may contain random data due to the way memory allocation works in many system
+* Default values: setting most fields to a default value. 
+
+5) What are ai_family and ai_socktype?
+* ai_family: This field specifies the desired address family for the returned addresses.
+    * AF_UNSPECIFIC, AF_INET, AD_INET6, AF_UNIX
+* ai_socktype: This field specifies the desired socket type
+    * SOCK_STREAM, SOCK_DGRAM, SOCK_RAW
+
+6) What does getaddrinfo do?
+* socket or network application
+* It is used to resolve and translate names (host/ domain) into a set of socket addresses
+* Or to translate service names (http) into a service number (port num)
+
+
+7) What does connect do?
+* establish connection between a socket (client side) and a remote socket address (server side)
+* TCP -> three-way handshake
+* UDP -> connectionless -> doesn't establish a real connection but sets the default destination for subsequent 'send' and 'recv'
+* blocking, if the connection cannot be established
+
+8) What is setsockopt?
+* provide a way to fine-tune socket characteristics, adjust performance parameters, or enable or disable specific socket features
+
+9) What does bind do?
+* associate a socket with a specific local IP address and port number
+
+10) What does listen do?
+* mark a socket as a passive socket, meaning it will be used to accept incoming connection requests rather than initiate connection
+* not use with UDP -> UDP-based server just use 'bind' to associate their socket with a particular address and port and then immediately start receiving data without needing to accept connections
+
+11) What does accept do?
+* used by server to accpet an incoming client connection

@@ -1,0 +1,19 @@
+{
+    "files.associations": {
+        "array": "c",
+        "string_view": "c",
+        "initializer_list": "c",
+        "utility": "c",
+        "cracker2.h": "c",
+        "queue.h": "c",
+        "format.h": "c",
+        "socket.h": "c",
+        "time.h": "c",
+        "string.h": "c",
+        "fcntl.h": "c",
+        "netdb.h": "c",
+        "common.h": "c",
+        "dictionary.h": "c",
+        "types.h": "c"
+    }
+}
